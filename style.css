@@ -1,0 +1,85 @@
+* {
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#titleBar {
+  position: relative;
+  width: 100%;
+  height: 9vh;
+  background-color: #15b5e6;
+}
+#title {
+  position: relative;
+  font-size: 55px;
+  font-family: sans-serif;
+  text-align: center;
+  top: 10px;
+  color: #ffffff;
+}
+
+#timercontainer {
+  position: relative;
+  margin: 0;
+}
+
+#timer {
+  position: relative;
+  text-align: center;
+  font-size: 100px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  top: 200px;
+  transition: 1s;
+}
+
+#timeLeft {
+  position: relative;
+  font-size: 70px;
+  font-family: sans-serif;
+  text-align: center;
+  top: 60px;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+#noItems {
+  position: relative;
+  text-align: center;
+  font-size: 65px;
+  font-family: sans-serif;
+  visibility: hidden;
+}
+#search {
+  position: relative;
+  text-align: center;
+}
+
+#openSearch {
+  width: 400px;
+  height: 60px;
+  position: relative;
+  /* left: 37%; */
+  top: 500px;
+  background-color: #01a2ff;
+  border: none;
+  border-radius: 30px;
+  font-size: 28px;
+  font-family: sans-serif;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+#openSearch:hover {
+  background-color: #209bec;
+  font-size: 30px;
+  color: white;
+}
+
+#list{
+  margin: 40px;
+  font-family: sans-serif;
+  font-size: 30px;
+  list-style: circle;
+}
