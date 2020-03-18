@@ -4,8 +4,10 @@ var timer = document.getElementById("timer");
 var toggleStartApp = document.getElementById("openSearch");
 var timeLeft = document.getElementById("timeLeft");
 var expirationDate = document.getElementById("expirationDate");
-
+var toggleList = document.getElementById("toggleList");
+var list = document.getElementById("list");
 //Global variables
+
 var time;
 var active = false;
 var message = "This item runs out on: ";
@@ -17,10 +19,27 @@ function printExpDate(index) {
   expirationDate.innerHTML = message + arrayToString;
 }
 
-//Arrays
-var dates = ["Jan 5, 2021", "Jan 1, 2022", "Feb 1, 2023"];
+const openList = () => {
+  // if (list.style.visibility == "hidden") {
+  //   list.style.visibility = "visible";
+  // } else {
+  //   list.style.visibility = "hidden";
+  // }
+  if (list.style.display == "none") {
+    list.style.display = "block";
+    toggleList.innerHTML = "Close the list";
+  } else {
+    list.style.display = "none";
+    toggleList.innerHTML = "Open the list";
+  }
+};
+//Event listeners
+toggleList.addEventListener("click", openList);
 
-function goBagApp(dateTime, index, item) {
+//Arrays
+var dates = ["Jan 5, 2021", "Jan 1, 2022", "Feb 1, 2023", "Feb 8, 2021"];
+
+function goBagApp(index, item) {
   $("#list").css("display", "none");
   $("#timeLeft").css("visibility", "visible");
   //Change the time left text
@@ -32,7 +51,7 @@ function goBagApp(dateTime, index, item) {
     // Get today's date and time
     var now = new Date().getTime();
     // Set the date we're counting down to
-    var countDownDate = new Date(dateTime + " 15:37:25").getTime();
+    var countDownDate = new Date(dates[index] + " 15:37:25").getTime();
 
     // Find the distance between now and the count down date
     var distance = countDownDate - now;
@@ -62,14 +81,31 @@ const startApp = () => {
   active = true;
   var userInput = prompt("What item would you like to look up?");
   if (userInput.toLowerCase().includes("cous")) {
-    goBagApp("Jan 10, 2024", 1, "Cous Cous");
+    goBagApp(1, "Cous Cous");
   } else if (userInput.toLowerCase().includes("first aid")) {
-    goBagApp("Jan 1 2021", 0, "The first aid kit");
+    goBagApp(0, "The first aid kit");
+  } else if (userInput.toLowerCase().includes("bread")) {
+    goBagApp(3, "the bread");
   } else {
     console.log("The item you have search, doesn't exist!");
-    $("#noItems").css("visibility", "visible");
+
+    $("#list").css("visibility", "hidden");
+
+    setTimeout(() => {
+      $("#noItems").css("visibility", "visible");
+    }, 135);
   }
 };
+
+// const openList = () => {
+//   $("#list").css("visibility", "visible");
+//   toggleList.classList.toggle("hideList");
+// };
+
+// const closeList = () => {
+//   $(".hideList").css("visibiltiy", "hidden");
+//   hideList.classList.toggle("toggleList");
+// };
 
 const stopTimer = () => {
   if (active == true) {
@@ -82,6 +118,7 @@ function reload() {
   return false;
 }
 
+//CLick listeners
 title.addEventListener("click", reload);
 toggleStartApp.addEventListener("click", stopTimer);
 toggleStartApp.addEventListener("click", startApp);

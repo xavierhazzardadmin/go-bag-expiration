@@ -60,8 +60,9 @@
 
 #noItems {
   position: relative;
+  top: 50px;
   text-align: center;
-  font-size: 65px;
+  font-size: 45px;
   font-family: sans-serif;
   visibility: hidden;
 }
@@ -74,6 +75,40 @@
 
 a {
   border: none;
+}
+
+#listButton {
+  position: relative;
+  text-align: center;
+}
+
+#toggleList {
+  width: 300px;
+  height: 50px;
+  position: relative;
+  text-align: center;
+  border: none;
+  margin-top: 10px;
+  background-color: #01a2ff;
+  border-radius: 30px;
+  font-family: sans-serif;
+  font-size: 25px;
+  transition: all 0.4s;
+  -webkit-animation: fadein 2.5s;
+  -moz-animation: fadein 2.5s;
+  -ms-animation: fadein 2.5s;
+  -o-animation: fadein 2.5s;
+  animation: fadein 2.5s;
+}
+
+#toggleList:hover {
+  background-color: #209bec;
+  font-size: 30px;
+  color: white;
+}
+
+#toggleList:focus {
+  outline: none;
 }
 
 #openSearch {
@@ -119,12 +154,14 @@ a {
   padding: 20px;
   border: solid 10px #d4d2d2;
   border-radius: 20px;
-  transition: display 2s;
+  transition: visibility 2s;
   -webkit-animation: fadein 2.5s;
   -moz-animation: fadein 2.5s;
   -ms-animation: fadein 2.5s;
   -o-animation: fadein 2.5s;
   animation: fadein 2.5s;
+  /* visibility: hidden; */
+  display: none;
 }
 
 @keyframes fadein {
