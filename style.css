@@ -69,6 +69,11 @@
 #search {
   position: relative;
   text-align: center;
+  border: none;
+}
+
+a {
+  border: none;
 }
 
 #openSearch {
@@ -89,6 +94,10 @@
   -ms-animation: fadein 2.5s;
   -o-animation: fadein 2.5s;
   animation: fadein 2.5s;
+}
+
+#openSearch:focus {
+  outline: none;
 }
 
 #openSearch:hover {
